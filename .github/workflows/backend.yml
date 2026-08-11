@@ -81,7 +81,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_KEY }}
           script: |
-            cd /home/ec2-user/app/Maven-Java-Springboot-Project
+            cd /home/ec2-user/app/Maven-Java-Springboot-Project/backend
             mvn clean package -DskipTests -U
 
       - name: Stop Old Application
