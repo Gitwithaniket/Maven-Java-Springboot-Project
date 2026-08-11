@@ -91,8 +91,8 @@ jobs:
             set -e
 
             APP_DIR=/home/ec2-user/app
-            REPO_NAME=Java-springboot-project
-            REPO_URL=https://github.com/CloudTechDevOps/Java-springboot-project.git
+            REPO_NAME=https://github.com/Gitwithaniket/Maven-Java-Springboot-Project.git
+            REPO_URL=
 
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
