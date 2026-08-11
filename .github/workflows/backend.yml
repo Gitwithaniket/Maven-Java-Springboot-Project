@@ -92,6 +92,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script_stop: false
           script: |
+            set +e
             PID=$(ps -ef | grep '[d]atastore-0.0.7.jar' | awk '{print $2}' || true)
       
             if [ -z "$PID" ]; then
@@ -109,6 +110,7 @@ jobs:
             fi
       
             echo "Application stopped."
+            exit 0
 
       - name: Start Application
         uses: appleboy/ssh-action@v1.1.0
