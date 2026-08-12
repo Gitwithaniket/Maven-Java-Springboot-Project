@@ -120,7 +120,7 @@ jobs:
             LOG_DIR=/var/log/app
             sudo mkdir -p $LOG_DIR
             sudo chown ec2-user:ec2-user $LOG_DIR
-            cd /home/ec2-user/app/Mavenm-Java-Springboot-Project/backend/target
+            cd /home/ec2-user/app/Maven-Java-Springboot-Project/backend/target
             nohup env \
               MYSQL_HOST=${{ secrets.DB_HOST }} \
               MYSQL_PORT=3306 \
