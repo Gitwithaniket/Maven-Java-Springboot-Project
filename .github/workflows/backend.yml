@@ -21,6 +21,7 @@ jobs:
           java-version: 17
           cache: maven
       
+<<<<<<< HEAD
       # - name: Build and SonarQube Scan
       #   working-directory: backend
       #   env:
@@ -41,6 +42,28 @@ jobs:
       #   timeout-minutes: 10
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+=======
+      - name: Build and SonarQube Scan
+        working-directory: backend
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          mvn clean verify sonar:sonar \
+            -DskipTests \
+            -Dsonar.projectKey=backend \
+            -Dsonar.projectName=backend \
+            -Dsonar.host.url=$SONAR_HOST_URL \
+            -Dsonar.token=$SONAR_TOKEN
+      
+      - name: SonarQube Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
+        with:
+          scanMetadataReportFile: backend/target/sonar/report-task.txt
+        timeout-minutes: 10
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+>>>>>>> 3f5119a44847f43ed5a6ba2c6529b48007f63e2b
 
       - name: Prepare EC2
         uses: appleboy/ssh-action@v1.1.0
@@ -81,7 +104,11 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_KEY }}
           script: |
+<<<<<<< HEAD
             cd /home/ec2-user/app/Java-springboot-project/backend
+=======
+            cd /home/ec2-user/app/Maven-Java-Springboot-Project/backend
+>>>>>>> 3f5119a44847f43ed5a6ba2c6529b48007f63e2b
             mvn clean package -DskipTests -U
 
       - name: Stop Old Application
@@ -120,7 +147,11 @@ jobs:
             LOG_DIR=/var/log/app
             sudo mkdir -p $LOG_DIR
             sudo chown ec2-user:ec2-user $LOG_DIR
+<<<<<<< HEAD
             cd /home/ec2-user/app/Java-springboot-project/backend/target
+=======
+            cd /home/ec2-user/app/Maven-Java-Springboot-Project/backend/target
+>>>>>>> 3f5119a44847f43ed5a6ba2c6529b48007f63e2b
             nohup env \
               MYSQL_HOST=${{ secrets.DB_HOST }} \
               MYSQL_PORT=3306 \
