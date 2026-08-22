@@ -60,8 +60,8 @@ jobs:
             set -e
 
             APP_DIR=/home/ec2-user/front
-            REPO_NAME=Java-springboot-project
-            REPO_URL=https://github.com/CloudTechDevOps/Java-springboot-project.git
+            REPO_NAME=Maven-Java-Springboot-Project
+            REPO_URL=https://github.com/Gitwithaniket/Maven-Java-Springboot-Project.git
 
             echo "🚀 Starting deployment..."
 
