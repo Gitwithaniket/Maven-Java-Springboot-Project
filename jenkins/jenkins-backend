@@ -24,7 +24,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/CloudTechDevOps/Java-springboot-project.git'
+                    url: 'https://github.com/Gitwithaniket/Maven-Java-Springboot-Project.git'
             }
         }
 
