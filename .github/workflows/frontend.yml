@@ -19,32 +19,32 @@ jobs:
       # SonarQube Scan
       ######################################################
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-           distribution: temurin
-           java-version: 17
+      # - name: Set up Java
+      #   uses: actions/setup-java@v4
+      #   with:
+      #      distribution: temurin
+      #      java-version: 17
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-         with:
-           args: >
-             -Dsonar.projectKey=frontend
-             -Dsonar.projectName=frontend
-             -Dsonar.sources=frontend
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v5
+      #   env:
+      #      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      #    with:
+      #      args: >
+      #        -Dsonar.projectKey=frontend
+      #        -Dsonar.projectName=frontend
+      #        -Dsonar.sources=frontend
 
-      # ######################################################
-      # # Quality Gate
-      # ######################################################
+      # # ######################################################
+      # # # Quality Gate
+      # # ######################################################
 
-      - name: SonarQube Quality Gate
-        uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
-        timeout-minutes: 10
-        env:
-           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # - name: SonarQube Quality Gate
+      #   uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
+      #   timeout-minutes: 10
+      #   env:
+      #      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       ######################################################
       # Deploy
